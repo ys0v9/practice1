@@ -1,6 +1,7 @@
 package com.example.practice1.controller;
 
 
+import com.example.practice1.dto.LoginRequest;
 import com.example.practice1.dto.RegisterRequest;
 import com.example.practice1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,8 @@ public class AuthController {
     public void register(@RequestBody RegisterRequest registerRequest) {
     }
 
+    @PostMapping("/login")
+    public void login(@RequestBody LoginRequest loginRequest) {
+
+    }
 }
