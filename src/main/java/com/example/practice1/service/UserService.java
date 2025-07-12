@@ -1,5 +1,6 @@
 package com.example.practice1.service;
 
+import com.example.practice1.Security.JwtUtil;
 import com.example.practice1.domain.User;
 import com.example.practice1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     public void register(User user) {
         if (userRepository.findByUsername(user.getUsername()) != null) {
