@@ -1,6 +1,7 @@
 package com.example.practice1.controller;
 
 
+import com.example.practice1.domain.User;
 import com.example.practice1.dto.LoginRequest;
 import com.example.practice1.dto.RegisterRequest;
 import com.example.practice1.service.UserService;
@@ -19,10 +20,11 @@ public class AuthController {
 
     @PostMapping("/register")
     public void register(@RequestBody RegisterRequest registerRequest) {
+        userService.register(new User(registerRequest.getUsername(), registerRequest.getPassword()));
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginRequest loginRequest) {
-
+    public String login(@RequestBody LoginRequest loginRequest) {
+        return userService.login(loginRequest.getUsername(), loginRequest.getPassword());
     }
 }
