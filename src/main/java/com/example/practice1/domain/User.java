@@ -2,6 +2,9 @@ package com.example.practice1.domain;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 
@@ -45,4 +48,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts = new ArrayList<>();
 }
