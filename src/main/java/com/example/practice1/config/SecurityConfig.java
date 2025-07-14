@@ -26,7 +26,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> {})  // cors()를 람다식으로 호출 (빈 블록도 가능)
+                .cors(cors -> {})
                 .csrf(csrf -> csrf.disable())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth

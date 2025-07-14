@@ -18,7 +18,7 @@ public class PostService {
 
     public void createPost(PostRequest request, Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("사용자 없음"));
+                .orElseThrow(() -> new RuntimeException("X"));
 
         Post post = Post.builder()
                 .title(request.getTitle())
@@ -38,16 +38,16 @@ public class PostService {
 
     public PostResponse getPost(Long id) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("게시글 없음"));
+                .orElseThrow(() -> new RuntimeException("X"));
         return new PostResponse(post);
     }
 
     public void updatePost(Long id, PostRequest request, Long userId) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("게시글 없음"));
+                .orElseThrow(() -> new RuntimeException("X"));
 
         if (!post.getAuthor().getId().equals(userId)) {
-            throw new RuntimeException("수정 권한 없음");
+            throw new RuntimeException("X");
         }
 
         post.setTitle(request.getTitle());
@@ -57,10 +57,10 @@ public class PostService {
 
     public void deletePost(Long id, Long userId) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("게시글 없음"));
+                .orElseThrow(() -> new RuntimeException("X"));
 
         if (!post.getAuthor().getId().equals(userId)) {
-            throw new RuntimeException("삭제 권한 없음");
+            throw new RuntimeException("X");
         }
 
         postRepository.delete(post);
