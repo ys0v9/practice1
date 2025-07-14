@@ -7,19 +7,17 @@ import java.time.LocalDateTime;
 
 @Getter
 public class PostResponse {
-
     private Long id;
     private String title;
     private String content;
+    private String authorUsername;
     private LocalDateTime createdAt;
 
     public PostResponse(Post post) {
         this.id = post.getId();
         this.title = post.getTitle();
         this.content = post.getContent();
-    }
-
-    public static PostResponse fromEntity(Post post) {
-        return new PostResponse(post);
+        this.authorUsername = post.getAuthor().getUsername();
+        this.createdAt = post.getCreatedAt();
     }
 }

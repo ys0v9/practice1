@@ -1,6 +1,6 @@
 package com.example.practice1.service;
 
-import com.example.practice1.Security.JwtUtil;
+import com.example.practice1.security.JwtUtil;
 import com.example.practice1.domain.User;
 import com.example.practice1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
